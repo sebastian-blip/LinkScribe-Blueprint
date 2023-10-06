@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario HTML</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/style_formulario.css') }}">
+</head>
+<body>
+    <header>
+        <div class="banner">
+            <a href="http://localhost:8000/home/index" class="logo">
+                <img src="/static/img/gafas.png" alt="Logo de la aplicación", width="100" height="100">
+            </a>
+            <a href="http://localhost:8000/auth/logout" class="logout">Logout</a>
+
+        </div>
+
+    </header>
+    <h1>Lista a buscar</h1>
+
+    <form method="POST" action="/listas/enviar-lista">
+
+        <label for="lista">Listas Usuario:</label>
+        <select name="lista" id="lista">
+            {% for opcion in opciones %}
+            <option value="{{ opcion }}">{{ opcion }}</option>
+            {% endfor %}
+        </select><br><br>
+
+
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>

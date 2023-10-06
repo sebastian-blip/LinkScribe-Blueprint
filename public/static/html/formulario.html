@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario HTML</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/style_formulario.css') }}">
+</head>
+<body>
+    <header>
+        <div class="banner">
+            <a href="http://localhost:8000/home/index" class="logo">
+                <img src="/static/img/gafas.png" alt="Logo de la aplicación", width="100" height="100">
+            </a>
+            <a href="http://localhost:8000/auth/logout" class="logout">Logout</a>
+
+        </div>
+
+    </header>
+    <h1>Web nueva</h1>
+
+    <form method="POST" action="/predict/enviar-prediccion" enctype="multipart/form-data">
+        <!-- Imagen -->
+        <img src="/static/img/{{ img }}" width="100" height="100"><br><br>
+        <input type="hidden" name="ruta_img" value="/static/img/{{ img }}">
+        <!-- Título (con valor por defecto) -->
+        <label for="titulo">Título:</label>
+        <input type="text" name="titulo" id="titulo" value="{{ title }}"><br><br>
+
+        <!-- Categoría (con valor por defecto) -->
+        <label for="categoria">Categoría:</label>
+        <input type="text" name="categoria" id="categoria" value="{{ categoria }}"><br><br>
+
+        <!-- Opciones (lista desplegable) -->
+        <label for="lista">Listas Usuario:</label>
+        <select name="lista" id="lista">
+            {% for opcion in opciones %}
+            <option value="{{ opcion }}">{{ opcion }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>

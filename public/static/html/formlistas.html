@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario HTML</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/style_formulario.css') }}">
+</head>
+<body>
+     <header>
+        <div class="banner">
+            <a href="http://localhost:8000/home/index" class="logo">
+                <img src="/static/img/gafas.png" alt="Logo de la aplicación", width="100" height="100">
+            </a>
+            <a href="http://localhost:8000/auth/logout" class="logout">Logout</a>
+
+        </div>
+
+    </header>
+    <h1>Crear lista</h1>
+
+    <div id="error-popup" class="popup">
+    <span id="error-message">Este es un mensaje de error.</span>
+    </div>
+
+    {% if verificado.lower()=='si' %}
+       <script>
+            alert ("La lista ya existe");
+       </script>
+    {% endif %}
+
+    {% if lista_guard.lower()=='si' %}
+       <script>
+            alert ("Lista Guardada");
+       </script>
+     {% endif %}
+
+    <form method="POST" action="/listas/agregar-listas">
+
+
+        <label for="nombre">Nombre*:</label>
+        <input type="text" name="nombre" id="nombre"><br><br>
+
+
+        <input type="submit" value="Enviar" id="submit-button">
+
+    </form>
+
+<script>
+    document.querySelector('form').addEventListener('submit', function (event) {
+        // Agrega aquí tu lógica de validación del formulario
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        if (!username || !password) {
+            // Mostrar el mensaje de error en el popup
+            const errorMessage = "Por favor, completa todos los campos obligatorios";
+            document.getElementById('error-message').textContent = errorMessage;
+            document.getElementById('error-popup').classList.add('show');
+
+            // Prevenir el envío del formulario
+            event.preventDefault();
+        }
+    });
+</script>
+
+</body>
+</html>

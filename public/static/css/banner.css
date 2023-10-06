@@ -1,0 +1,87 @@
+/* Estilos para el banner */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+.banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-image: url('/static/img/logo.png'); /* Cambia 'ruta_de_la_imagen.jpg' por la ruta real de tu imagen */
+    background-repeat: repeat; /* Repetir la imagen en mosaico */
+    background-color: #9b9b9b;
+    color: blue;
+    padding: 10px 20px;
+    background-size: 10% auto;
+    background-position: center; /* Centrar la imagen de fondo */
+}
+
+/* Estilos para el logo */
+.logo {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* Estilos para el botón de logout */
+.logout {
+    color: #fff;
+    text-decoration: none;
+    background-color: #dc3545;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.logout:hover {
+    background-color: #c82333;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Estilos para las secciones */
+.section {
+    background-color: #f2f2f2;
+    padding: 30px;
+    margin: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.section h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.section p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.section a {
+    text-decoration: none;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.section a:hover {
+    background-color: #0056b3;
+}
