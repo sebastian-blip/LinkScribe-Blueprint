@@ -4,7 +4,7 @@ import asyncio
 from functools import lru_cache
 from pydantic_settings import BaseSettings
 import motor.motor_asyncio
-import os
+
 from metadata.path import Path
 
 
@@ -59,15 +59,11 @@ def get_llaves_jwt() -> dict:
             {'private_jwt_key': 'vFivSFFFVbausuhgasdhjcxz',
             'public_jwt_key': 'achcibcew76yewhjcdsweISkjsj'}
     """
-    path_folder = os.path.dirname(__file__)
-    input_ = os.path.join(path_folder, 'input')
-    public_key_jwt = os.path.join(input_, 'credenciales', 'public_jwt.pem')
-    private_key_jwt = os.path.join(input_, 'credenciales', 'private_jwt.pem')
 
-    with open(private_key_jwt) as fname:
+    with open(Path.private_key_jwt) as fname:
         private_jwt_pem = fname.read()
 
-    with open(public_key_jwt) as fname:
+    with open(Path.public_key_jwt) as fname:
         public_jwt_pem = fname.read()
 
     keys = {'private_jwt_key': private_jwt_pem,
