@@ -122,8 +122,6 @@ async def login(request: Request):
             response.set_cookie(
                 key=Sesion.cookie_name,
                 value=token,
-                secure=True,
-                httponly=True,
                 expires=Sesion.expiracion_cookie,
             )
 
