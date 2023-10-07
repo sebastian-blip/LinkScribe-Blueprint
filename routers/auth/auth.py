@@ -125,7 +125,6 @@ async def login(request: Request):
                 secure=True,
                 httponly=True,
                 expires=Sesion.expiracion_cookie,
-                samesite='none',
             )
 
         else:
