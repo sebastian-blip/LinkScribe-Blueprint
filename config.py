@@ -1,5 +1,6 @@
 import joblib
 import logging
+import os
 import asyncio
 from functools import lru_cache
 from pydantic_settings import BaseSettings
@@ -40,7 +41,8 @@ def get_log():
 @lru_cache()
 def get_bd():
 
-    client = motor.motor_asyncio.AsyncIOMotorClient('localhost', 27017)
+    mongodb_uri = os.environ.get("MONGODB_URI", "mongodb://localhost:27017")
+    client = motor.motor_asyncio.AsyncIOMotorClient('mongodb_uri')
     bd = client.predict_url
 
     return bd
