@@ -41,8 +41,7 @@ def get_log():
 @lru_cache()
 def get_bd():
 
-    mongodb_uri = os.environ.get("MONGODB_URI", "mongodb://localhost:27017")
-    client = motor.motor_asyncio.AsyncIOMotorClient(mongodb_uri)
+    client = motor.motor_asyncio.AsyncIOMotorClient(os.environ["DB_URL"])
     bd = client.predict_url
 
     return bd
