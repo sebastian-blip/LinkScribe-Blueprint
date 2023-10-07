@@ -119,8 +119,9 @@ async def cookie_required(
         correctamente.
 
     """
-
+    print(auth)
     data_user = decode_token(auth)
+    print(data_user)
     if not data_user['success']:
         raise HTTPException(status_code=401, detail=data_user['msg'])
 
