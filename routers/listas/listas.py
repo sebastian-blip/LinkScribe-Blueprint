@@ -174,7 +174,8 @@ async def url_lista_compartida(request: Request, token: str):
 
     mongo_bd = get_bd()
     user_collection = mongo_bd['listas']
-    find_user = {'username': data['username']}
+    user = data['username']
+    find_user = {'username': user}
     listas = await user_collection.find_one(find_user)
     listas = listas['listas']
     lista = listas.get(data['lista'])
