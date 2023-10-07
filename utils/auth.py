@@ -89,7 +89,7 @@ def create_time_token(user: str, lista: str) -> jwt:
     return jwt.encode(data, secret_key, algorithm='RS512')
 
 
-async def decode_time_token(token: str):
+def decode_time_token(token: str):
     """Verifica la autorización del token y permite el paso a los endpoint.
 
     Args:
